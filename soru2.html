@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="minValueRange">Minimum Değer :</label><br>
+    <input type="range" name="minValueRange"  id="minValueRange">
+    <input type="submit" onclick="GetMinValue()" value="Seç">
+    <input type="text" name="minValue" id="minValue"><br><br>
+    <label for="maxValueRange">Maksimum Değer :</label><br>
+    <input type="range" name="maxValueRange" min="1" max="100" id="maxValueRange">
+    <input type="submit" onclick="GetMaxValue()" value="Seç">
+    <input type="text" name="maxValue" id="maxValue"><br><br>
+    <input type="submit" onclick="GenerateRandomValue()" value="Üret">
+    <hr>
+    <p id="result"></p>
+</body>
+
+<script>
+    function GetMinValue(){
+        const min=document.getElementById("minValueRange").value;
+        document.getElementById("minValue").value=min;
+    }
+    function GetMaxValue(){
+        const max=document.getElementById("maxValueRange").value;
+        document.getElementById("maxValue").value=max;
+    }
+    function GenerateRandomValue(){
+        let min=parseInt( document.getElementById("minValue").value);
+        let max=parseInt( document.getElementById("maxValue").value);
+        let randomNumber=Math.floor(Math.random()*(max-min))+min;
+        document.getElementById("result").innerHTML="Rastgele sayı :"+randomNumber;
+    }
+
+
+</script>
+
+
+</html>
